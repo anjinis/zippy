@@ -26,6 +26,7 @@ import com.google.api.client.auth.oauth2.Credential;
 import com.google.api.client.extensions.jetty.auth.oauth2.LocalServerReceiver;
 import com.google.api.client.util.store.AbstractDataStoreFactory;
 import com.google.api.client.util.store.FileDataStoreFactory;
+import com.google.api.client.http.HttpClient;
 import com.uber.sdk.rides.auth.OAuth2Credentials;
 import com.uber.sdk.rides.client.CredentialsSession;
 import com.uber.sdk.rides.client.SessionConfiguration;
@@ -57,9 +58,11 @@ public final class GetUserProfile {
         SessionConfiguration config = createSessionConfiguration();
         Credential credential = authenticate(System.getProperty("user.name"), config);
 
-        token = credential.getAccessToken()
-        System.out.printf("Creds; %s", credential.getAccessToken());
+      //  token = credential.getAccessToken();
+        // System.out.printf("Creds; %s", credential.getAccessToken());
 
+        HttpClient httpclient = HttpClient.createDefault();
+        // HttpPost httppost = new HttpPost("api.uber.com/v1/deliveries/quote");
 
 
         System.exit(0);
